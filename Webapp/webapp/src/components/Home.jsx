@@ -112,6 +112,7 @@ function Home() {
               id="image"
               name="image"
               required
+              value={note_image}
               type="file"
               onChange={(e) => setImage(e.target.files[0])}
             />
