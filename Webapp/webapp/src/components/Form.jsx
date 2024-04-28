@@ -9,7 +9,7 @@ import video from '../assets/color.mp4'
 function Form({ route, method }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [check_password,] = useState("");
+    
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ function Form({ route, method }) {
         e.preventDefault();
 
         try {
-            const res = await api.post(route, { username, password , check_password })
+            const res = await api.post(route, { username, password })
             if (method === "login") {
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
                 localStorage.setItem(REFRESH_TOKEN, res.data.refresh);

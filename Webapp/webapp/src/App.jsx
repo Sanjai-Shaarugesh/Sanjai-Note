@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound"
 import ProtectedRoute from "./components/ProtectedRoute"
 import '../src/index.css'
 import Navbar from "./components/Navbar"
+import Info from "./pages/Info"
 
 
 
@@ -35,6 +36,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          }
+        />
+
+<Route
+          path="/info"
+          element={
+            <ProtectedRoute>
+              <Info />
             </ProtectedRoute>
           }
         />

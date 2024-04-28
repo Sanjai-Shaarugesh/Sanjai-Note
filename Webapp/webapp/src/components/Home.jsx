@@ -68,7 +68,7 @@ function Home() {
       </video>
 
       <div>
-        {" "}
+
         <div className="bag">
           <div>
             <h2 className="label">Notes</h2>
