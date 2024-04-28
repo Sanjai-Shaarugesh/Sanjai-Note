@@ -123,7 +123,7 @@ function Home() {
             <h1 className="link">Want to logout click here</h1>
           </a>
 
-          <a href="https://sanjai-shaarugesh.netlify.app/" className="link2">
+          <a href="https://sanjai-shaarugesh.netlify.app/" target="blank" className="link2">
             <h1 className="link2">This webapp is created by shaarugesh</h1>
           </a>
         </div>

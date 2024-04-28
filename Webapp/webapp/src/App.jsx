@@ -6,6 +6,8 @@ import Home from "./components/Home"
 import NotFound from "./pages/NotFound"
 import ProtectedRoute from "./components/ProtectedRoute"
 import '../src/index.css'
+import Navbar from "./components/Navbar"
+
 
 
 function Logout() {
@@ -20,7 +22,13 @@ function RegisterAndLogout() {
 
 function App() {
   return (
+
+
+
+
+
     <BrowserRouter>
+    <Navbar/>
       <Routes>
         <Route
           path="/"
