@@ -4,7 +4,7 @@ import Note from "../components/Note";
 import "../styles/Home.css";
 import video from "../assets/color.mp4";
 
-function Home() {
+function Home({username,password}) {
   const [notes, setNotes] = useState([]);
   const [message, setMessage] = useState("");
   const [title, setTitle] = useState("");
@@ -123,6 +123,8 @@ function Home() {
 
           <a href="https://sanjai-shaarugesh.netlify.app/" className="link2">
             <h1 className="link2">This webapp is created by shaarugesh</h1>
+            
+             
           </a>
         </div>
       </div>
