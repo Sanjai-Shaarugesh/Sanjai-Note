@@ -111,7 +111,7 @@ function Home({username,password}) {
             <input
               id="image"
               name="image"
-              required 
+              
               type="file"
               onChange={(e) => setImage(e.target.files[0])}
             />
