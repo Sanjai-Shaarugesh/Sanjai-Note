@@ -98,7 +98,7 @@ function Home({username,password}) {
             <textarea
               id="content"
               name="content"
-              required
+              
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
