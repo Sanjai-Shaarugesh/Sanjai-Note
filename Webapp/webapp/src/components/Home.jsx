@@ -106,7 +106,7 @@ function Home() {
             <textarea
               id="content"
               name="content"
-              required
+              
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
@@ -119,6 +119,7 @@ function Home() {
             <input
               id="image"
               name="image"
+              
               type="file"
               onChange={(e) => setImage(e.target.files[0])}
             />
