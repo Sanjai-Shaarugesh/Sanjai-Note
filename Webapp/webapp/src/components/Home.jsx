@@ -4,11 +4,16 @@ import Note from "../components/Note";
 import "../styles/Home.css";
 import video from "../assets/color.mp4";
 
-function Home({username,password}) {
+function Home() {
   const [notes, setNotes] = useState([]);
   const [message, setMessage] = useState("");
   const [title, setTitle] = useState("");
   const [note_image, setImage] = useState(null);
+ 
+
+  
+
+
   {
     /*const [badge, setBadge] = useState("");*/
   }
@@ -45,7 +50,10 @@ function Home({username,password}) {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("message", message);
-    formData.append("note_image", note_image);
+  
+    if (note_image) {
+      formData.append("note_image", note_image);
+    }
 
     api
       .post("/api/note/", formData, {
@@ -121,7 +129,7 @@ function Home({username,password}) {
             <h1 className="link">Want to logout click here</h1>
           </a>
 
-          <a href="https://sanjai-shaarugesh.netlify.app/" className="link2">
+          <a href="https://sanjai-shaarugesh.netlify.app" className="link2">
             <h1 className="link2">This webapp is created by shaarugesh</h1>
             
              
