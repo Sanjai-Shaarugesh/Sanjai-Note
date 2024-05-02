@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar"
 
 
 
+
 function Logout() {
   localStorage.clear()
   return <Navigate to="/login" />
