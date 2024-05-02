@@ -50,7 +50,7 @@ function ProtectedRoute({ children }) {
     };
 
     if (isAuthorized === null) {
-       return<div>LoadingIndicator</div>
+       return<div><LoadingIndicator/></div>
     }
 
     return isAuthorized ? children : <Navigate to="/login" />;
