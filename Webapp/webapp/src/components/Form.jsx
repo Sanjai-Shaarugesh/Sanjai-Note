@@ -64,7 +64,7 @@ function Form({ route, method }) {
                         htmlFor="username"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                       >
-                        Your email
+                       Name :
                       </label>
                       <input
                         type="text"
@@ -81,7 +81,7 @@ function Form({ route, method }) {
                         htmlFor="password"
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                       >
-                        Password
+                        Password :
                       </label>
                       <input
                         type="password"
