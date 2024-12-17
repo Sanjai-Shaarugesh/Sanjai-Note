@@ -31,7 +31,7 @@ function Form({ route, method }) {
         navigate("/login");
       }
     } catch (error) {
-      alert(error);
+      alert("Invlaid credentials");
     } finally {
       setLoading(false);
     }
