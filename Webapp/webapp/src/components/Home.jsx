@@ -25,7 +25,7 @@ function Home() {
       .then((data) => {
         setNotes(data);
       })
-      .catch((err) => alert(err));
+      .catch((err) => alert("server busy"));
   };
 
   const deleteNote = (id) => {
