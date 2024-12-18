@@ -5,7 +5,7 @@ import { ACCESS_TOKEN } from "./constants";
 
 
 const api = axios.create({
-  baseURL:"https://shaarugesh.pythonanywhere.com",
+  baseURL:  import.meta.env.VITE_API_URL,
 });
 
 api.interceptors.request.use(
