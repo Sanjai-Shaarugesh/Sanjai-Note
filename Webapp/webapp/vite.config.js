@@ -50,6 +50,6 @@ export default defineConfig({
       'process.env': process.env
     },
 
-    base: '/Sanjai-Note/',
+    
     
 })
