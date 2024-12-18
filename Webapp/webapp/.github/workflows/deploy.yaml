@@ -1,0 +1,36 @@
+name: sanjai-notes
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies 🔧
+        run: npm ci
+
+      - name: Build Project 🏗️
+        env:
+          VITE_API_KEY: ${{ secrets.VITE_API_URL }}
+          VITE_PUBLIC_URL: ${{ secrets.VITE_API_URL }}
+        run: npm run build
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
