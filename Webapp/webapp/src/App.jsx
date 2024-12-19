@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound"
 import ProtectedRoute from "./components/ProtectedRoute"
 import '../src/index.css'
 import Navbar from "./components/Navbar"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 
 
@@ -31,6 +32,8 @@ function App() {
 
     <BrowserRouter>
     <Navbar/>
+    <SpeedInsights />
+
       <Routes>
         <Route
           path="/"
