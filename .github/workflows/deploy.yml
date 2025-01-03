@@ -35,15 +35,17 @@ jobs:
         working-directory: Webapp/webapp
         run: npm install
 
-      - name: Build project
-        working-directory: Webapp/webapp
-        run: npm run build
+      
 
       - name: Build Project 🏗️
         env:
           VITE_API_KEY: ${{ secrets.VITE_API_URL }}
           VITE_PUBLIC_URL: ${{ secrets.VITE_API_URL }}
+        working-directory: Webapp/webapp
         run: npm run build
+
+     
+        
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
