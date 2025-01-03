@@ -1,40 +1,54 @@
-
-name: sanjai-notes
-
+name: Deploy
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
-
-permissions:
-  contents: write
+    branches: main
+  pull_request:
+    branches: main
 
 jobs:
-  build-and-deploy:
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # Needed for auth with Deno Deploy
+      contents: read # Needed to clone the repository
+
     steps:
-      - name: cd
-        uses: cd  Webapp/webapp
-        
-      - name: Checkout 🛎️
+      - name: Clone repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js 
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: lts/*
 
-      - name: Install Dependencies 🔧
-        run: npm ci
+      - name: Navigate to webapp directory
+        run: cd Webapp/webapp
 
-      - name: Build Project 🏗️
+      - name: Install dependencies
+        working-directory: Webapp/webapp
+        run: npm install
+
+      - name: Build project
         env:
           VITE_API_KEY: ${{ secrets.VITE_API_URL }}
           VITE_PUBLIC_URL: ${{ secrets.VITE_API_URL }}
+        working-directory: Webapp/webapp
         run: npm run build
 
-      - name: Deploy to GitHub Pages 🚀
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload to Deno Deploy
+        uses: denoland/deployctl@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          project: "sanjai-notes"
+          entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts"
+          root: "Webapp/webapp/dist"
+
+
+
+         
