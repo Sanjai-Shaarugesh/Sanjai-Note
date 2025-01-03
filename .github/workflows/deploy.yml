@@ -27,10 +27,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          
-      - name: cd 
-        run: "cd Webapp/webapp
-    
+
       - name: Install step
         run: "npm install"
 
@@ -40,8 +37,8 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "sanjai-note"
+          project: "sanjai-notes"
           entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts"
-          root: "Webapp/webapp/dist"
+          root: "dist"
           
           
