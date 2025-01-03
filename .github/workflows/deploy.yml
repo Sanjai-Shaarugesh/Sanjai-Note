@@ -35,11 +35,6 @@ jobs:
         working-directory: Webapp/webapp
         run: npm install
 
-      - name: Deno Install
-        working-directory: Webapp/webapp
-        run: deno install
-
-
       - name: Build project
         working-directory: Webapp/webapp
         run: npm run build
